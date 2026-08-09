@@ -12,9 +12,10 @@ data/
 # Local scrape / wiki staging (not for public git)
 content/*.json
 
-# Source brand masters (not served; keep locally if needed)
-branding/
+# Source brand masters at repo root (not served)
+/branding/
 
 # One-off / scratch branding tools
 scripts/branding/_old*
 scripts/scrub-public.mjs
+scripts/rewrite-version-history.mjs
