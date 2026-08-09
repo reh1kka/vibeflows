@@ -1,0 +1,20 @@
+node_modules/
+dist/
+.vercel/
+.DS_Store
+*.log
+npm-debug.log*
+.env
+.env.*
+!.env.example
+data/
+
+# Local scrape / wiki staging (not for public git)
+content/*.json
+
+# Source brand masters (not served; keep locally if needed)
+branding/
+
+# One-off / scratch branding tools
+scripts/branding/_old*
+scripts/scrub-public.mjs

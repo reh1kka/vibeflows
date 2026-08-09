@@ -1,0 +1,56 @@
+{
+  "name": "vibeflows",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "deploy:prod": "node scripts/deploy/deploy-prod.mjs",
+    "scrape": "node scripts/catalog/scrape-genres.mjs",
+    "scrape:enrich": "node scripts/catalog/scrape-genres.mjs --enrich --concurrency=3 --delay=150",
+    "similarity": "node scripts/catalog/build-similarity.mjs",
+    "wiki": "node scripts/descriptions/fetch-wiki-descriptions.mjs",
+    "wiki:seed": "node scripts/descriptions/seed-ru.mjs",
+    "wiki:i18n": "node scripts/descriptions/fetch-wiki-multilang.mjs --limit=400",
+    "wiki:all": "node scripts/descriptions/fetch-all-descriptions.mjs",
+    "wiki:collect": "node scripts/descriptions/fetch-all-descriptions.mjs --wiki-only --out=content/genre-descriptions.json && node scripts/descriptions/sync-public-descriptions.mjs",
+    "wiki:collect:all": "node scripts/descriptions/fetch-all-descriptions.mjs --out=content/genre-descriptions.json && node scripts/descriptions/sync-public-descriptions.mjs",
+    "wiki:sync": "node scripts/descriptions/sync-public-descriptions.mjs",
+    "wiki:gen": "node scripts/descriptions/generate-genre-blurbs.mjs --force-generated",
+    "wiki:gen:all": "node scripts/descriptions/generate-genre-blurbs.mjs --force-generated && node scripts/descriptions/generate-secondary-blurbs.mjs --force-generated",
+    "postinstall": "prisma generate",
+    "db:generate": "prisma generate",
+    "db:migrate": "node scripts/db/run-prisma.mjs migrate dev",
+    "db:deploy": "node scripts/db/run-prisma.mjs migrate deploy",
+    "db:seed": "node prisma/seed.mjs",
+    "db:studio": "node scripts/db/run-prisma.mjs studio",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.mjs"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "@sentry/react": "^10.69.0",
+    "@vercel/analytics": "^2.0.1",
+    "framer-motion": "^12.43.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "vite-plugin-pwa": "^1.3.0",
+    "workbox-window": "^7.4.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.5.2",
+    "dotenv": "^17.4.2",
+    "prisma": "^6.19.3",
+    "sharp": "^0.35.3",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^4.1.10"
+  }
+}

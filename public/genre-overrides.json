@@ -1,0 +1,26 @@
+{
+  "post-punk": {
+    "exampleArtist": "Molchat Doma",
+    "coverUrl": "/artists/molchat-doma.png?v=2",
+    "artistsPinned": true,
+    "artists": [
+      {
+        "name": "Molchat Doma",
+        "id": "1nVq0hKIVReeaiB3xJgKf0",
+        "image": "/artists/molchat-doma.png?v=2"
+      },
+      { "name": "Ploho", "id": "7yjnZ3eibFQRN65u1syJZg" },
+      { "name": "Bitcevsky park", "id": "61zP4E25pGua8bQ6xYftX6" },
+      { "name": "Sizor", "id": "2e3s1XCV0fNqQKgqUifxL3" },
+      { "name": "Англия", "id": "6X8VxKH2Msq7yvJDr9uVmE" },
+      { "name": "Где Фантом?", "id": "0r3Nr12KW6sMFbgdzbJtgj" },
+      { "name": "Chernikovskaya Hata", "id": "1atThEZZ9Dxt9F6r7Ay4HV" },
+      { "name": "The End of Electronics", "id": "0r5L0sYEYV2cCNIzhetV7K" },
+      { "name": "Utro", "id": "3KzQbvnYBpg4JNgZnPeCx2" },
+      { "name": "Электрофорез", "id": "2xZHADRPl17tm8FPthebhR" },
+      { "name": "Сова", "id": "2VFXr1f1iMskmkDbW87MmZ" },
+      { "name": "Холодный звонок", "id": "75d7OzYeRzLOGEurYQBg00" },
+      { "name": "Свидетельство о смерти", "id": "5VnrZRYzaatWXs702ScGwN" }
+    ]
+  }
+}

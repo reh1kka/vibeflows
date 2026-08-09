@@ -1,0 +1,35 @@
+@import './theme-neon.css';
+
+:root {
+  color-scheme: dark;
+  --bg: #121212;
+  --card: #181818;
+  --text: #ffffff;
+  --muted: #b3b3b3;
+  --green: #1db954;
+  --green-dim: #1ed760;
+  --danger: #ff4b4b;
+  --font: 'Outfit', system-ui, sans-serif;
+  --display: 'Space Grotesk', 'Outfit', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+}
+
+body {
+  overscroll-behavior: none;
+  user-select: none;
+}

@@ -1,0 +1,60 @@
+// Catalog mirrors public/*.json — optional DB source behind VITE_USE_DB_CATALOG.
+// User prefs stay in localStorage (no auth).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  // Neon pooled URL is fine for app + migrate on empty DB
+  url      = env("DATABASE_URL")
+}
+
+/// Genre card from Every Noise catalog
+model Genre {
+  id            String   @id
+  name          String
+  x             Int
+  y             Int
+  color         String
+  previewUrl    String?
+  trackId       String   @default("")
+  exampleArtist String?
+  exampleTrack  String?
+  engemap       String   @default("")
+  playlistUrl   String   @default("")
+  /// Artist[] JSON: { name, id, image? }[]
+  artists       Json     @default("[]")
+  artistsPinned Boolean  @default(false)
+  coverUrl      String?
+  /// Similar genre ids (from similarity.json related[id])
+  related       String[] @default([])
+  /// Wiki/blurb payload: { byLang: { en: { text, source }, ... } } | null
+  description   Json?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([name])
+}
+
+/// Deezer nb_fan keyed by Spotify artist id
+model ArtistFan {
+  artistId  String   @id
+  fans      Int
+  updatedAt DateTime @updatedAt
+}
+
+/// Small catalog blobs (meta, overrides) and seed bookkeeping
+model CatalogMeta {
+  key              String   @id
+  /// ISO timestamp from source JSON (genres.updatedAt etc.)
+  catalogUpdatedAt String?
+  source           String?
+  method           String?
+  count            Int?
+  /// Arbitrary JSON (e.g. genre-overrides map)
+  payload          Json?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
